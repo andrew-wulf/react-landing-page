@@ -67,7 +67,7 @@ export function Gallery (props) {
 
             <div className="mt-2 relative h-5 hidden xs:block">
 
-                <div className="flex flex-row absolute translate-x-0 gap-2 sm:gap-6 left-1/2 -translate-x-1/2">
+                <div className="flex flex-row absolute gap-2 sm:gap-6 left-1/2 -translate-x-1/2">
                     <div onClick={(e) => {e.stopPropagation(); indexChange(-1); clearTimeout(timeOut)}} 
                         className="w-8 h-8 rounded-full content-center shadow-[inset_0_0_0_0.1rem_rgb(234,234,234)] text-gray-700 hover:text-black hover:bg-gray-100">
                         <FaChevronLeft className="place-self-center"/>

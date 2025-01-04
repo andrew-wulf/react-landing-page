@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { Gallery } from "./Gallery"
+import { FiGithub } from "react-icons/fi";
+import { CiGlobe } from "react-icons/ci";
 
 
 export function Card(props) {
@@ -30,10 +32,23 @@ export function Card(props) {
                     </p>
                 </div>
                 <div
-                    className="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center text-surface/75 dark:border-white/10 dark:text-neutral-300 grid grid-cols-3">
-                    <a className=" text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-700 hover:cursor-pointer hover:underline hover:text-blue-700">View on Github</a>
-                    <a className=" text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-700 hover:cursor-pointer hover:underline hover:text-blue-700">Project Site</a>
-                    <a className=" text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-700 hover:cursor-pointer hover:underline hover:text-blue-700">Image Gallery</a>
+                    className="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center text-surface/75 dark:border-white/10 dark:text-neutral-300 grid grid-cols-2">
+                    {/* <a className=" text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-700 hover:cursor-pointer hover:underline hover:text-blue-700">View on Github</a>
+                    <a className=" text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-700 hover:cursor-pointer hover:underline hover:text-blue-700">Project Site</a> */}
+                    
+                    <div className="w-24 h-7 p-2 flex flex-row gap-2 rounded-md bg-gray-800 hover:bg-gray-700 text-white font-semibold text-sm place-items-center place-self-center">
+                        <div className="">
+                            <FiGithub />
+                        </div>
+                        <p>Source</p>
+                    </div>
+
+                    <div className="w-24 h-7 p-2 flex flex-row gap-2 rounded-md bg-gray-800 hover:bg-gray-700 text-white font-semibold text-sm place-items-center place-self-center">
+                        <div className="">
+                            <CiGlobe />
+                        </div>
+                        <p>Website</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -8,6 +8,9 @@ import { GrDocumentDownload } from "react-icons/gr";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image, ImageWithZoom, ButtonFirst, ButtonLast, DotGroup } from 'pure-react-carousel';
 import { useState } from 'react';
 import { Gallery } from './Gallery';
+import { Card } from './Card';
+import { PiGithubLogo } from 'react-icons/pi';
+import { FiGithub, FiLinkedin } from 'react-icons/fi';
 
 
 function App() {
@@ -52,13 +55,13 @@ function App() {
 
   return (
     <>
-      <div className="w-full bg-zinc-200 text-black">
+      <div className="w-[100vw] bg-gray-50 text-black">
       
-      <div className = 'm-auto w-full flex flex-col place-items-center p-2 pt-5 gap-1 border-gray-300 border-b-2 shadow-md bg-zinc-200'>
+      <div className = 'm-auto w-full flex flex-col place-items-center p-2 pt-5 gap-1 border-gray-300 border-b-2 shadow-md bg-gray-50'>
 
         <div className="flex flex-col gap-1 lg:flex-row lg:gap-6 place-items-center">
 
-          <img className="w-40 rounded-full ring-1 ring-slate-700" src="headshot.jpg"/>
+          <img className="w-40 rounded-full" src="headshot.jpg"/>
           
           <div className ='flex flex-col'>
             <h1 className="text-3xl lg:text-4xl">
@@ -91,14 +94,14 @@ function App() {
           <div className="group flex flex-col gap-3 place-items-center m-auto text-[40px] text-gray-700 opacity-80 
           hover:opacity-100 hover:cursor-pointer hover:text-gray-900"
           >
-            <FaGithub className=''/>
+           <FiGithub />
             <p className='font-bold -translate-y-full scale-50 group-hover:-translate-y-1 group-hover:scale-100 text-sm text-gray-900 text-opacity-0 group-hover:text-opacity-100 duration-500'>Github</p>
           </div>
 
           <div className="group flex flex-col gap-3 place-items-center m-auto text-[48px] text-gray-700 opacity-80 
           hover:opacity-100 hover:cursor-pointer hover:text-gray-900"
           >
-            <AiOutlineLinkedin className=''/>
+            <FiLinkedin />
             <p className='font-bold -translate-y-full scale-50 group-hover:-translate-y-1 group-hover:scale-100 text-sm text-gray-900 text-opacity-0 group-hover:text-opacity-100 duration-500'>Linkedin</p>
           </div>
 
@@ -118,89 +121,17 @@ function App() {
         </div>
 
 
-        <div className="grid w-[100vw] m-auto gap-8 sm:gap-10 grid-cols-1 lg:gap-12 xl:gap-14 2xl:gap-16">
+        <div className='w-full mx-auto max-w-[800px] px-8 lg:px-12 grid grid-cols-1 xl:grid-cols-3 xl:max-w-[1600px] gap-20'>
 
+          <Card imgs={twitterImgs} delay={6} title={"Twitter Clone"} desc={"Social media CRUD app, built from scratch using React & Ruby on Rails. Features user creation, posts, and various interactions."}/>
+
+          <Card imgs={movieImgs} delay={6} title={"Movie Battle"} desc={"Multiplayer battle-royale style trivia game, inspired by cine2nerdle's battle mode. Supports 2-8 players. Coming soon!"}/>
+
+          <Card imgs={chessImgs} delay={6} title={"Chess Game"} desc={"Play a full game of chess against yourself or the stockfish engine. Built from scratch using React, Javascript & the Phaser library."}/>
         
-
-          <div
-            className="mx-auto flex flex-col sm:rounded-lg w-full sm:w-5/6 md:w-[640px] xl:w-1/2 2xl:w-[768px] 
-            bg-white hover:bg-gray-50 hover:border-blue-200 hover:border hover:shadow-md hover:shadow-blue-100 hover:cursor-pointer 
-            text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white sm:shrink-0 sm:grow sm:basis-0" 
-
-            onMouseEnter={() => {setTwitterAutoplay(true)}}
-            onMouseLeave={() => {setTwitterAutoplay(false)}}
-            >
-            <a href="#!">
-            
-            <Gallery imgs={twitterImgs} autoPlay={twitterAutoplay} delay={6}/>
-
-            </a>
-            <div className="p-6">
-              <h5 className="mb-2 text-xl font-medium leading-tight">Twitter Clone</h5>
-              <p className="text-base">
-                Social media CRUD app, built from scratch using React & Ruby on Rails.
-              </p>
-            </div>
-            <div
-              className="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center text-surface/75 dark:border-white/10 dark:text-neutral-300 grid grid-cols-3">
-              <a className="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-600 hover:cursor-pointer hover:underline hover:text-blue-700">View on Github</a>
-              <a className="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-600 hover:cursor-pointer hover:underline hover:text-blue-700">Project Site</a>
-              <a className="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-600 hover:cursor-pointer hover:underline hover:text-blue-700">Image Gallery</a>
-            </div>
-          </div>
-
-          <div
-            className="mx-auto flex flex-col sm:rounded-lg w-full sm:w-5/6 md:w-[640px] xl:w-1/2 2xl:w-[768px]
-            bg-white hover:bg-gray-50 hover:border-blue-200 hover:border hover:shadow-md hover:shadow-blue-100 hover:cursor-pointer 
-            text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white sm:shrink-0 sm:grow sm:basis-0"  
-            
-            onMouseEnter={() => {setMovieAutoplay(true)}}
-            onMouseLeave={() => {setMovieAutoplay(false)}}
-            >
-            <a href="#!">
-              <Gallery imgs={movieImgs} autoPlay={movieAutoplay} delay={6}/>
-            </a>
-            <div className="p-6">
-              <h5 className="mb-2 text-xl font-medium leading-tight">Movie Battle</h5>
-              <p className="text-base">
-                Multiplayer battle-royale style trivia game, inspired by cine2nerdle's battle mode. Coming soon!
-              </p>
-            </div>
-            <div
-              className="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center text-surface/75 dark:border-white/10 dark:text-neutral-300 grid grid-cols-3">
-              <a className="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-600 hover:cursor-pointer hover:underline hover:text-blue-700">View on Github</a>
-              <a className="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-600 hover:cursor-pointer hover:underline hover:text-blue-700">Project Site</a>
-              <a className="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-600 hover:cursor-pointer hover:underline hover:text-blue-700">Image Gallery</a>
-            </div>
-          </div>
-        
-          <div
-            className="mx-auto flex flex-col sm:rounded-lg w-full sm:w-5/6 md:w-[640px] xl:w-1/2 2xl:w-[768px]
-            bg-white hover:bg-gray-50 hover:border-blue-200 hover:border hover:shadow-md hover:shadow-blue-100 hover:cursor-pointer 
-            text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white sm:shrink-0 sm:grow sm:basis-0"  
-
-            onMouseEnter={() => {setChessAutoplay(true)}}
-            onMouseLeave={() => {setChessAutoplay(false)}}
-            >
-            <a href="#!">
-              <Gallery imgs={chessImgs} autoPlay={chessAutoplay} delay={6}/>
-            </a>
-            <div className="p-6">
-              <h5 className="mb-2 text-xl font-medium leading-tight">Chess Game</h5>
-              <p className="text-base">
-                Play a game of chess against yourself or the stockfish engine. Built from scratch using React, Javascript & the Phaser library.
-              </p>
-            </div>
-            <div
-              className="mt-auto border-t-2 border-neutral-100 px-6 py-3 text-center text-surface/75 dark:border-white/10 dark:text-neutral-300 grid grid-cols-3">
-              <a className="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-600 hover:cursor-pointer hover:underline hover:text-blue-700">View on Github</a>
-              <a className="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-600 hover:cursor-pointer hover:underline hover:text-blue-700">Project Site</a>
-              <a className="text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-600 hover:cursor-pointer hover:underline hover:text-blue-700">Image Gallery</a>
-            </div>
-          </div>
-        
-          
         </div>
+        
+   
 
         <div className='h-16 sm:h-32 content-end place-items-center pb-3'>
           <p onClick={() => {window.scrollTo(0,0)}} className='align-middle text-md text-gray-500 hover:underline hover:cursor-pointer'>Back to Top</p>

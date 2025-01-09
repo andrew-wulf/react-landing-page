@@ -2,52 +2,59 @@
 import './App.css'
 
 
-import { FaGithub } from "react-icons/fa";
-import { AiOutlineLinkedin } from "react-icons/ai";
 import { GrDocumentDownload } from "react-icons/gr";
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image, ImageWithZoom, ButtonFirst, ButtonLast, DotGroup } from 'pure-react-carousel';
-import { useState } from 'react';
-import { Gallery } from './Gallery';
+import { useEffect, useState } from 'react';
 import { Card } from './Card';
-import { PiGithubLogo } from 'react-icons/pi';
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
+import { WiDaySunny } from 'react-icons/wi';
+import { RxMoon } from 'react-icons/rx';
+import { LuMail } from 'react-icons/lu';
 
 
 function App() {
 
-  const [twitterAutoplay, setTwitterAutoplay] = useState(false);
-  const [chessAutoplay, setChessAutoplay] = useState(false);
-  const [movieAutoplay, setMovieAutoplay] = useState(false);
+  const [theme, setTheme] = useState('light');
 
-  const [twitterScale, setTwitterScale] = useState(100);
-  const [chessScale, setChessScale] = useState(100);
-  const [movieScale, setMovieScale] = useState(100);
+  const getLocalStorage = () => {
 
-
- 
-
-  const reset = () => {}
-
-
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 1
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
+    if (localStorage.getItem("theme") === null) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        localStorage.setItem("theme", "dark");
+      }
+      else {
+        localStorage.setItem("theme", "light");
+      }
     }
-  };
+    setTheme(localStorage.getItem("theme"));
+  }
+  useEffect(getLocalStorage, []);
+
+
+  useEffect(() => {
+    if (theme === 'dark' && !document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.toggle('dark')
+      console.log(theme)
+    }
+
+    else {
+      if (theme === 'light' && document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.toggle('dark')
+        console.log(theme)
+      }
+    }
+  }, [theme])
+
+
+  const themeToggle = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+      localStorage.setItem("theme", "dark");
+    }
+    else {
+      setTheme('light');
+      localStorage.setItem("theme", "light")
+    }
+  }
 
   let twitterImgs = ['twitter1.png', 'twitter2.png', 'twitter3.png', 'twitter4.png', 'twitter5.png']
   let movieImgs = ['movie_battle2.png']
@@ -55,9 +62,9 @@ function App() {
 
   return (
     <>
-      <div className="w-[100vw] bg-gray-50 text-black">
+      <div className="w-[100vw] bg-gray-50 text-black dark:bg-[rgb(10,12,30)] dark:text-white">
       
-      <div className = 'm-auto w-full flex flex-col place-items-center p-2 pt-5 gap-1 border-gray-300 border-b-2 shadow-md bg-gray-50'>
+      <div className = 'm-auto w-full flex flex-col place-items-center p-2 pt-5 gap-1 bg-gray-50 dark:bg-[rgb(10,12,30)]'>
 
         <div className="flex flex-col gap-1 lg:flex-row lg:gap-6 place-items-center">
 
@@ -85,26 +92,40 @@ function App() {
         <div className="w-72 md:w-96 pl-6 pt-6 pr-6 grid grid-cols-3">
           
           <div className="group flex flex-col gap-3 place-items-center m-auto text-[36px] text-gray-700 opacity-80 
-          hover:opacity-100 hover:cursor-pointer hover:text-gray-900"
+          hover:opacity-100 hover:cursor-pointer hover:text-gray-900
+          dark:text-gray-300 dark:hover:text-white
+          "
           >
             <GrDocumentDownload className=''/>
             <p className='font-bold -translate-y-full scale-50 group-hover:-translate-y-1 group-hover:scale-100 text-sm text-gray-900 text-opacity-0 group-hover:text-opacity-100 duration-500'>Resume</p>
           </div>
 
           <div className="group flex flex-col gap-3 place-items-center m-auto text-[40px] text-gray-700 opacity-80 
-          hover:opacity-100 hover:cursor-pointer hover:text-gray-900"
+          hover:opacity-100 hover:cursor-pointer hover:text-gray-900
+          dark:text-gray-300 dark:hover:text-white
+          "
           >
            <FiGithub />
             <p className='font-bold -translate-y-full scale-50 group-hover:-translate-y-1 group-hover:scale-100 text-sm text-gray-900 text-opacity-0 group-hover:text-opacity-100 duration-500'>Github</p>
           </div>
 
           <div className="group flex flex-col gap-3 place-items-center m-auto text-[48px] text-gray-700 opacity-80 
-          hover:opacity-100 hover:cursor-pointer hover:text-gray-900"
+          hover:opacity-100 hover:cursor-pointer hover:text-gray-900
+          dark:text-gray-300 dark:hover:text-white
+          "
           >
             <FiLinkedin />
             <p className='font-bold -translate-y-full scale-50 group-hover:-translate-y-1 group-hover:scale-100 text-sm text-gray-900 text-opacity-0 group-hover:text-opacity-100 duration-500'>Linkedin</p>
           </div>
 
+          <div 
+          onClick={themeToggle}
+          className='w-10 h-10 rounded-md hover:bg-gray-300 place-items-center place-content-center hover:cursor-pointer'
+          >
+
+            <WiDaySunny className='hidden dark:block w-8 h-8 text-yellow-500'/>
+            <RxMoon className='dark:hidden w-8 h-8 text-blue-600'/>
+          </div>
         </div>
           
         
@@ -131,14 +152,39 @@ function App() {
         
         </div>
         
-   
 
-        <div className='h-16 sm:h-32 content-end place-items-center pb-3'>
-          <p onClick={() => {window.scrollTo(0,0)}} className='align-middle text-md text-gray-500 hover:underline hover:cursor-pointer'>Back to Top</p>
+
+        <div className='flex flex-col mx-auto mt-10 gap-6 md:mt-24 md:flex-row-reverse md:justify-between md:gap-0 md:w-[400px]'>
+
+          <div className='flex flex-row gap-7 mx-auto md:m-0'>
+            <a href="https://www.linkedin.com/in/andrewdwulf/">
+              <FiLinkedin className='w-5 h-5 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:cursor-pointer'/>
+            </a>
+            <a href="https://github.com/andrew-wulf">
+              <FiGithub className='w-5 h-5 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:cursor-pointer'/>
+            </a>
+            <a href="mailto:andrewdwulf@gmail.com">
+              <LuMail className='w-5 h-5 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:cursor-pointer'/>
+            </a>
+          
+          </div>
+
+          <div className='flex flex-row gap-1 place-items-center pb-10
+          text-sm text-gray-500 
+          '>
+            <p>&copy;</p>
+            <p>2025</p>
+            <a href="https://andrew-wulf-portfolio.com" onClick={() => {window.scrollTo(0,0)}} 
+            className='align-middle hover:text-neutral-900 dark:hover:text-white hover:cursor-pointer'
+            >
+              andrew-wulf-portfolio.com</a>
+          </div>
         </div>
+        
 
       </div>
 
+      </div>
 
 
        {/* <h1 className="text-3xl text-center">My Tech Stack</h1>
@@ -267,9 +313,6 @@ function App() {
   
       </div> */}
 
-
-
-    </div>
     </>
   )
 }

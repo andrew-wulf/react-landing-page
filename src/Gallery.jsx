@@ -69,11 +69,15 @@ export function Gallery (props) {
 
                 <div className="flex flex-row absolute gap-2 sm:gap-6 left-1/2 -translate-x-1/2">
                     <div onClick={(e) => {e.stopPropagation(); indexChange(-1); clearTimeout(timeOut)}} 
-                        className="w-8 h-8 rounded-full content-center shadow-[inset_0_0_0_0.1rem_rgb(234,234,234)] text-gray-700 hover:text-black hover:bg-gray-100">
+                        className="w-8 h-8 rounded-full content-center shadow-[inset_0_0_0_0.1rem_rgb(234,234,234)] text-gray-700 hover:text-black hover:bg-gray-100
+                        dark:shadow-none dark:border-gray-600 dark:border dark:text-gray-400 dark:hover:bg-[rgb(47,50,78)] dark:hover:text-gray-300"
+                        >
                         <FaChevronLeft className="place-self-center"/>
                     </div>
                     <div onClick={(e) => {e.stopPropagation(); indexChange(1); clearTimeout(timeOut)}} 
-                        className="w-8 h-8 rounded-full content-center shadow-[inset_0_0_0_0.1rem_rgb(234,234,234)] text-gray-700 hover:text-black hover:bg-gray-100">
+                        className="w-8 h-8 rounded-full content-center shadow-[inset_0_0_0_0.1rem_rgb(234,234,234)] text-gray-700 hover:text-black hover:bg-gray-100
+                        dark:shadow-none dark:border-gray-600 dark:border dark:text-gray-400 dark:hover:bg-[rgb(47,50,78)] dark:hover:text-gray-300"
+                        >
                         <FaChevronRight className="place-self-center"/>
                     </div>
                 </div>
@@ -86,7 +90,9 @@ export function Gallery (props) {
                                 return (
                                     <div key={i} className='text-gray-800 hover:text-gray-500 text-lg' onClick={() => {setIndex(i)}}>
                                         <div className="w-[0.85rem] h-[0.85rem] rounded-full content-center 
-                                        shadow-[inset_0_0_0_0.12rem_rgb(45,45,45)]"/>
+                                        shadow-[inset_0_0_0_0.12rem_rgb(45,45,45)]
+                                        dark:shadow-[inset_0_0_0_0.12rem_rgb(215,215,215)]
+                                        "/>
                                     </div>
                                 )    
                             }
@@ -95,7 +101,7 @@ export function Gallery (props) {
                                     <div key={i} className='text-gray-200 hover:text-gray-500 text-lg' onClick={() => {setIndex(i)}}>
                                         <div className="w-[0.85rem] h-[0.85rem] rounded-full content-center 
                                         shadow-[inset_0_0_0_0.12rem_rgb(215,215,215)] hover:shadow-[inset_0_0_0_0.12rem_rgb(90,90,90)]
-                                        
+                                        dark:shadow-[inset_0_0_0_0.12rem_rgb(45,45,45)] dark:hover:shadow-[inset_0_0_0_0.12rem_rgb(160,160,160)]
                                         "/>
                                     </div>
                                 )

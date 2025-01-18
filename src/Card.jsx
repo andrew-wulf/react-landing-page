@@ -31,7 +31,27 @@ export function Card(props) {
                     <p className="text-sm text-gray-600 dark:text-gray-300 font-normal min-h-16 mt-4">
                         {props.desc}
                     </p>
+                    
+                    
+                    <div className="mt-2 mb-3 flex gap-4">
+                        {
+                            props.tech.map((name, i) => {
+                        
+                                return (
+                                    <div className="inline-flex items-center rounded-md border font-semibold transition-colors 
+                                    focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-gray-200 text-gray-900
+                                    px-1 py-0 text-xs" key={i}>
+                                        {name}
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
+
+
+
+
                 <div
                     className="mt-auto py-3 text-center text-surface-75 dark:border-white/10 dark:text-neutral-300 grid grid-rows-2 gap-3 xl:grid-cols-2 xl:grid-rows-1 w-40 sm:w-60 xl:w-80 mx-auto">
                     {/* <a className=" text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-700 hover:cursor-pointer hover:underline hover:text-blue-700">View on Github</a>

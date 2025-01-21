@@ -9,12 +9,17 @@ import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import { WiDaySunny } from 'react-icons/wi';
 import { RxMoon } from 'react-icons/rx';
 import { LuMail } from 'react-icons/lu';
+import { Modal } from './Modal';
 
 
 
 function App() {
 
   const [theme, setTheme] = useState('light');
+
+  const [modalData, setModalData] = useState({});
+  const [modalVisible, setModalVisible] = useState(false);
+
 
   const getLocalStorage = () => {
 
@@ -57,29 +62,60 @@ function App() {
     }
   }
 
-  let twitterImgs = ['twitter1.png', 'twitter2.png', 'twitter3.png', 'twitter4.png', 'twitter5.png']
-  let twitterTech = ['Ruby on Rails', 'React.JS', 'Supabase', 'Heroku']
 
-  let movieImgs = ['movie_battle2.png']
-  let movieTech = ['React.JS', 'Tailwind', 'Socket.IO', 'Express.JS', 'Heroku']
 
-  let chessImgs = ['chess1.png', 'chess2.png']
-  let chessTech = ['Phaser', 'React.JS']
+  let projectData = {
+    twitter: {
+      title: "Twitter Clone",
+      desc: "Social media CRUD app, built from scratch using React & Ruby on Rails. Features user creation, posts, and various interactions.",
+      imgs: ['twitter1.png', 'twitter2.png', 'twitter3.png', 'twitter4.png', 'twitter5.png'],
+      tech: ['Ruby on Rails', 'React.JS', 'Supabase', 'Heroku']
+    },
+    movieBattle: {
+      title: "Movie Battle",
+      desc: "Multiplayer battle-royale style trivia game, inspired by cine2nerdle's battle mode. Supports 2-8 players. Coming soon!",
+      imgs: ['movie_battle2.png'],
+      tech: ['React.JS', 'Tailwind', 'Socket.IO', 'Express.JS', 'Heroku']
+    },
+    chess: {
+      title: "Chess Game",
+      desc: "Play a full game of chess against yourself or the stockfish engine.",
+      imgs: ['chess1.png', 'chess2.png'],
+      tech: ['Phaser', 'React.JS']
+    },
+  }
+
+
+
+  const updateModal = (key) => {
+    console.log(projectData[key])
+    setModalData(projectData[key])
+  }
+
+  const closeModal = () => {
+    setModalVisible(false);
+  }
+
+
+
 
   return (
     <>
-      <div className="flex flex-col w-full bg-gray-50 text-black dark:bg-[rgb(10,12,30)] dark:text-white">
+      <div className="flex flex-col w-full bg-gray-50 text-black dark:bg-[rgb(10,12,30)] dark:text-white ">
 
       
-      <div className = 'fixed h-20 w-full flex flex-row place-items-center justify-between px-2 sm:px-4 xl:px-8 gap-1 bg-gray-50/[0.5] dark:bg-[rgb(10,12,30)] dark:border-gray-700'>
+      <div className = 'fixed h-20 w-full flex flex-row place-items-center justify-between px-2 sm:px-4 xl:px-8 gap-1 bg-gray-50/[0.5] dark:bg-[rgb(10,12,30)]'>
         
-        <img src='/logo_dark.png' alt="logo" className='aspect-square h-16 md:h-20 hidden dark:block '/>
-        <img src='/Logo.png' alt="logo" className='aspect-square h-16 md:h-20 dark:hidden'/>
+        <a href="https://andrew-wulf-portfolio.com">
+          <img src='/logo_dark.png' alt="logo" className='hover:cursor-pointer aspect-square h-16 md:h-20 hidden dark:block '/>
+          <img src='/Logo.png' alt="logo" className='hover:cursor-pointer aspect-square h-16 md:h-20 dark:hidden'/>
+        </a>
 
         <div className=' flex flex-row gap-8 place-items-center '>
 
-          <p className='text-md md:text-lg text-gray-600 hover:text-zinc-800 dark:text-gray-300 hover:cursor-pointer dark:hover:text-white font-medium'>Home</p>
-          <p className='text-md md:text-lg text-gray-600 hover:text-zinc-800 dark:text-gray-300 hover:cursor-pointer dark:hover:text-white font-medium'>Projects</p>
+          <p className='text-md md:text-lg text-gray-600 hover:text-zinc-800 dark:text-gray-300 dark:opacity-75 hover:cursor-pointer dark:hover:text-gray-200 dark:hover:opacity-100 font-medium'>Projects</p>
+          <p className='text-md md:text-lg text-gray-600 hover:text-zinc-800 dark:text-gray-300 dark:opacity-75 hover:cursor-pointer dark:hover:text-gray-200 dark:hover:opacity-100 font-medium'>Experience</p>
+          <p className='text-md md:text-lg text-gray-600 hover:text-zinc-800 dark:text-gray-300 dark:opacity-75 hover:cursor-pointer dark:hover:text-gray-200 dark:hover:opacity-100 font-medium'>Contact</p>
           <div 
             onClick={themeToggle}
             className='2xl:hidden w-10 h-10 rounded-md hover:bg-gray-300 hover:cursor-pointer dark:hover:bg-gray-700 flex place-items-center justify-center'
@@ -104,12 +140,12 @@ function App() {
 
       <div className='mt-28 mx-auto flex place-items-center flex-col '>
 
-        <div className='w-full sm:w-[500px] rounded-none sm:rounded-xl border border-gray-300 shadow-md shadow-gray-300 bg-[rgb(247,247,247)]  p-4 place-items-center
-        dark:bg-[rgb(10,12,30)] dark:border-gray-800 dark:shadow-blue-900'>
+        <div className='w-full sm:w-[500px] rounded-none sm:rounded-xl bg-transparent border border-gray-300 shadow-md shadow-gray-300  p-4 place-items-center
+         dark:border-[rgb(34,41,71)] dark:shadow-[rgb(10,12,30)]'>
 
           <div className="flex flex-col gap-1 md:flex-row w-3/4 justify-between place-items-center">
 
-            <img className="w-40 rounded-full" src="headshot.jpg"/>
+            <img className="w-36 rounded-full" src="headshot.jpg"/>
             
             <div className ='flex flex-col'>
               <h1 className="text-3xl ">
@@ -137,7 +173,7 @@ function App() {
 
               <a href="Andrew_Wulf_Resume.docx" target="_blank" rel="noopener noreferrer" className='flex flex-row place-items-center gap-2 p-2 px-4 border border-slate-300 shadow-sm shadow-slate-200 rounded-lg font-semibold 
               hover:cursor-pointer hover:bg-gray-100 
-              dark:shadow-none dark:bg-transparent dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-[rgb(6,8,26)] dark:hover:border-gray-500'
+              dark:shadow-none dark:bg-transparent dark:border-[rgb(34,41,71)] dark:text-gray-100 dark:hover:text-white dark:hover:bg-[rgb(6,8,26)] dark:hover:border-gray-500'
               >
                 <p>Resume</p>
                 <GrDocumentDownload/>
@@ -164,10 +200,10 @@ function App() {
 
 
 
-          <div className=" rounded-xl m-auto p-5 text-center font-light text-lg text-gray-900 dark:text-gray-200
+          <div className="mt-20 rounded-xl m-auto p-5 text-center font-light text-lg text-gray-900 dark:text-gray-300
           xs:text-xl sm:text-2xl lg:text-3xl ">
             <p>
-              I'm a versatile software engineering professional specializing in full stack web development. Check out my projects below!
+              I'm a <b className='dark:text-gray-200'>software engineer</b> specializing in full stack web development. Check out my <b className='dark:text-gray-200'>projects</b> below!
             </p>
           </div>
 
@@ -177,8 +213,7 @@ function App() {
 
 
 
-      
-    
+
 
 
 
@@ -188,11 +223,17 @@ function App() {
 
         <div className='w-full mx-auto max-w-[800px] px-8 lg:px-12 grid grid-cols-1 xl:grid-cols-3 xl:max-w-[1600px] gap-20'>
 
-          <Card imgs={twitterImgs} delay={6} title={"Twitter Clone"} tech={twitterTech} desc={"Social media CRUD app, built from scratch using React & Ruby on Rails. Features user creation, posts, and various interactions."}/>
+          <Card
+          delay={6}
+          data={projectData['twitter']}/>
 
-          <Card imgs={movieImgs} delay={6} title={"Movie Battle"} tech={movieTech} desc={"Multiplayer battle-royale style trivia game, inspired by cine2nerdle's battle mode. Supports 2-8 players. Coming soon!"}/>
+          <Card
+          delay={6}
+          data={projectData['movieBattle']}/>
 
-          <Card imgs={chessImgs} delay={6} title={"Chess Game"} tech={chessTech} desc={"Play a full game of chess against yourself or the stockfish engine."}/>
+          <Card 
+          delay={6}
+          data={projectData['chess']}/>
         
         </div>
         

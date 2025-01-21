@@ -13,10 +13,10 @@ export function Card(props) {
         <div className="w-full mx-auto">
             <div
                 className="group mx-auto flex flex-col rounded-lg w-full border-gray-300 border shadow-sm shadow-gray-200
-                bg-gray-50 hover:bg-gray-50 hover:border-blue-200 hover:shadow-md hover:shadow-blue-100 hover:cursor-pointer
-                dark:bg-[rgb(10,12,30)] dark:border-[rgb(34,41,71)] dark:shadow-none dark:hover:bg-[rgb(14,16,34)] dark:hover:shadow-none dark:hover:border-gray-600
+                bg-gray-50 
+                dark:bg-[rgb(10,12,30)] dark:border-[rgb(34,41,71)] dark:shadow-none 
                 text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-gray-50 sm:shrink-0 sm:grow sm:basis-0
-                group:" 
+                " 
 
                 onMouseEnter={() => {setAutoplay(true)}}
                 onMouseLeave={() => {setAutoplay(false)}}
@@ -24,7 +24,7 @@ export function Card(props) {
                 <a href="#!">
                 
                 <div className="w-full mx-auto">
-                    <Gallery imgs={props.data.imgs} autoPlay={autoPlay} delay={props.delay}/>
+                    <Gallery imgs={props.data.imgs} autoPlay={autoPlay} delay={props.delay} imgClick={props.imgClick}/>
                 </div>
 
                 </a>
@@ -63,7 +63,7 @@ export function Card(props) {
                     w-40 sm:w-60 xl:w-28 h-8 p-2 flex flex-row gap-2 rounded-md 
                     bg-gray-50 border border-gray-800 hover:bg-gray-200 hover:text-gray-900 text-gray-800 
                     dark:text-gray-200 dark:bg-transparent dark:border-[rgb(34,41,71)] dark:hover:text-white dark:hover:bg-[rgb(6,8,26)] dark:hover:border-gray-600
-                    font-semibold text-sm place-items-center justify-center place-self-center"
+                    font-semibold text-sm place-items-center justify-center place-self-center hover:cursor-pointer"
                     >
                         <div className="">
                             <FiGithub />
@@ -74,7 +74,7 @@ export function Card(props) {
                     <div className="
                     w-40 sm:w-60 xl:w-28 h-8 p-2 flex flex-row gap-2 rounded-md 
                     bg-gray-800 hover:bg-gray-700 text-white dark:bg-gray-200 dark:text-black dark:hover:bg-[rgb(191,194,206)]
-                    font-semibold text-sm place-items-center justify-center place-self-center"
+                    font-semibold text-sm place-items-center justify-center place-self-center hover:cursor-pointer"
                     >
                         <div className="">
                             <CiGlobe />

@@ -59,7 +59,7 @@ export function Gallery (props) {
   
     return (
         <div>
-            <div>
+            <div className=" dark:bg-gray-400/100 hover:opacity-90 dark:hover:opacity-75 rounded-t-lg" onClick={() => {props.imgClick(imgs[index])}}>
                 <img src={imgs[index]} draggable='false' className="rounded-t-lg"/>  
          
             </div>

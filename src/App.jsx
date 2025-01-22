@@ -117,17 +117,17 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col w-full bg-gray-50 text-black dark:bg-[rgb(10,12,30)] dark:text-white ">
+      <div className="min-w-[380px] flex flex-col w-full bg-gray-50 text-black dark:bg-[rgb(10,12,30)] dark:text-white ">
 
       
-      <div className = 'fixed h-20 w-full min-w-[380px] flex flex-row place-items-center justify-between px-2 sm:px-4 xl:px-8 gap-1 bg-gray-50/[0.5] dark:bg-[rgb(10,12,30)]'>
+      <div className = 'fixed h-20 w-full min-w-[380px] flex flex-row place-items-center justify-between px-4 sm:px-4 xl:px-8 gap-1 bg-gray-50/[0.5] dark:bg-[rgb(10,12,30)]/[0.5]'>
         
         <a href="https://andrew-wulf-portfolio.com">
           <img src='/logo_dark.png' alt="logo" className='hover:cursor-pointer aspect-square h-16 md:h-20 hidden dark:block '/>
           <img src='/Logo.png' alt="logo" className='hover:cursor-pointer aspect-square h-16 md:h-20 dark:hidden'/>
         </a>
 
-        <div className=' flex flex-row gap-8 place-items-center'>
+        <div className=' flex flex-row gap-8 place-items-center hidden'>
 
           <p className='text-md md:text-lg text-gray-600 hover:text-zinc-800 dark:text-gray-300 dark:opacity-75 hover:cursor-pointer dark:hover:text-gray-200 dark:hover:opacity-100 font-medium'>Home</p>
           <p className='text-md md:text-lg text-gray-600 hover:text-zinc-800 dark:text-gray-300 dark:opacity-75 hover:cursor-pointer dark:hover:text-gray-200 dark:hover:opacity-100 font-medium'>Projects</p>
@@ -143,10 +143,10 @@ function App() {
 
         <div 
             onClick={themeToggle}
-            className='hidden 2xl:flex w-10 h-10 rounded-md hover:bg-gray-300 hover:cursor-pointer dark:hover:bg-gray-700 place-items-center justify-center'
+            className=' 2xl:flex w-10 h-10 rounded-md hover:bg-gray-300 hover:cursor-pointer dark:hover:bg-gray-700 flex place-items-center justify-center'
             >
-              <WiDaySunny className='hidden dark:block w-6 h-6 md:w-7 md:h-7 text-yellow-500'/>
-              <RxMoon className='dark:hidden w-6 h-6 md:w-7 md:h-7 text-blue-600'/>
+              <WiDaySunny className='hidden dark:block w-7 h-7 md:w-7 md:h-7 text-yellow-500'/>
+              <RxMoon className='dark:hidden w-7 h-7 md:w-7 md:h-7 text-blue-600'/>
           </div>
 
      
@@ -216,8 +216,8 @@ function App() {
 
 
 
-          <div className="mt-20 rounded-xl m-auto p-5 text-center font-light text-gray-900 dark:text-gray-300
-          xs:text-xl sm:text-2xl lg:text-3xl ">
+          <div className="mt-20 rounded-xl m-auto py-5 px-3 md:px-5 text-center font-light text-gray-900 dark:text-gray-300
+          text-2xl md:text-3xl ">
             <p>
               I'm a <b className='dark:text-gray-200 hover:cursor-pointer hover:text-[rgb(88,105,170)]'>software engineer</b> specializing in full stack web development. Check out my <b 
               className='dark:text-gray-200 hover:cursor-pointer hover:text-[rgb(88,105,170)]' onClick={projectScroll}>projects</b> below!
@@ -230,10 +230,9 @@ function App() {
 
       <div className='mx-auto w-[380px] md:w-[500px] lg:w-[800px]'>
 
-        <h1 className='px-4 text-2xl mt-20 xl:mt-28 mb-6 text-gray-900 dark:text-gray-200 font-normal'>My Tech Stack</h1>
-        <p className='px-6 text-md text-gray-800 dark:text-gray-300'>These are the technologies i have worked with the most, and built the bulk of my projects with.</p>
-
-        <div className='pt-10 grid grid-cols-2 px-2 gap-4  md:gap-6 lg:grid-cols-3  lg:gap-8'>
+        <h1 className='px-2 text-[46px] mt-20 xl:mt-28 mb-6 text-gray-900 dark:text-gray-200 font-light place-self-center'>My Tech Stack</h1>
+   
+        <div className='pt-6 grid grid-cols-2 px-2 gap-4  md:gap-6 lg:grid-cols-3  lg:gap-8'>
           {
             Object.keys(techStack).map((key, i) => {
 
@@ -249,7 +248,7 @@ function App() {
                   </div>
                   
                   <div className="ml-3 pt-2 flex flex-col">
-                    <h1 className="text-sm md:text-md text-gray-800 font-semibold dark:font-medium dark:text-gray-200">{key}</h1>
+                    <h1 className="mt-1 text-sm md:text-md text-gray-800 font-semibold dark:font-medium dark:text-gray-200">{key}</h1>
                     <p className="text-xs md:text-sm text-gray-700 dark:text-gray-400">{arr[1]}</p>
                   </div>
                   
@@ -267,12 +266,12 @@ function App() {
       <Modal img={modalImg} show={modalVisible} onClose={closeModal}/>
 
 
-      <h1 id='cards' className='mt-20 mx-auto text-[40px] font-light'>Featured Projects</h1>
+      <h1 id='cards' className='mt-32 mx-auto text-[46px] font-light'>Featured Projects</h1>
 
-      <div className="mt-14 flex flex-col gap-[15px]">
+      <div className="mt-20 flex flex-col gap-[15px]">
         
 
-        <div className='w-full mx-auto max-w-[800px] px-8 lg:px-12 grid grid-cols-1 xl:grid-cols-3 xl:max-w-[1600px] gap-20'>
+        <div className='w-full mx-auto max-w-[600px] px-8 lg:px-12 grid grid-cols-1 xl:grid-cols-3 xl:max-w-[1600px] gap-20'>
 
           <Card 
           delay={6}

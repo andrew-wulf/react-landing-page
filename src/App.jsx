@@ -88,7 +88,7 @@ function App() {
       imgs: ['chess1.png', 'chess2.png'],
       tech: ['Phaser', 'React.JS'],
       repo: 'https://github.com/andrew-wulf/chess',
-      site: 'https://twitter-clone-frontend-q1pw.onrender.com/'
+      site: 'https://chess-hfx7.onrender.com'
     },
   }
 

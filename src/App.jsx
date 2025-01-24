@@ -70,19 +70,25 @@ function App() {
       title: "Twitter Clone",
       desc: "Social media CRUD app. Features user creation, posts, and various interactions.",
       imgs: ['twitter1.png', 'twitter2.png', 'twitter3.png', 'twitter4.png', 'twitter5.png'],
-      tech: ['Ruby on Rails', 'React.JS', 'Supabase', 'Heroku']
+      tech: ['Ruby on Rails', 'React.JS', 'Supabase', 'Heroku'],
+      repo: 'https://github.com/andrew-wulf/twitter-clone-frontend',
+      site: 'https://twitter-clone-frontend-q1pw.onrender.com/'
     },
     movieBattle: {
       title: "Movie Battle",
       desc: "Multiplayer battle-royale style trivia game, inspired by cine2nerdle's battle mode. Supports 2-8 players. Coming soon!",
       imgs: ['movie_battle2.png'],
-      tech: ['React.JS', 'Tailwind', 'Socket.IO', 'Express.JS', 'Heroku']
+      tech: ['React.JS', 'Tailwind', 'Socket.IO', 'Express.JS', 'Heroku'],
+      repo: '',
+      site: ''
     },
     chess: {
       title: "Chess Game",
       desc: "Play a full game of chess against yourself or the stockfish engine.",
       imgs: ['chess1.png', 'chess2.png'],
-      tech: ['Phaser', 'React.JS']
+      tech: ['Phaser', 'React.JS'],
+      repo: 'https://github.com/andrew-wulf/chess',
+      site: 'https://twitter-clone-frontend-q1pw.onrender.com/'
     },
   }
 

@@ -8,7 +8,6 @@ export function Card(props) {
 
     const [autoPlay, setAutoplay] = useState(false);
 
-
     return (
         <div className="w-full mx-auto">
             <div
@@ -59,28 +58,32 @@ export function Card(props) {
                     {/* <a className=" text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-700 hover:cursor-pointer hover:underline hover:text-blue-700">View on Github</a>
                     <a className=" text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-700 hover:cursor-pointer hover:underline hover:text-blue-700">Project Site</a> */}
                     
-                    <div className="
+                    <a className="
                     w-40 sm:w-60 xl:w-28 h-8 p-2 flex flex-row gap-2 rounded-md 
                     bg-gray-50 border border-gray-800 hover:bg-gray-200 hover:text-gray-900 text-gray-800 
                     dark:text-gray-200 dark:bg-transparent dark:border-[rgb(34,41,71)] dark:hover:text-white dark:hover:bg-[rgb(6,8,26)] dark:hover:border-gray-600
                     font-semibold text-sm place-items-center justify-center place-self-center hover:cursor-pointer"
+                    
+                    href={props.data.repo}
                     >
                         <div className="">
                             <FiGithub />
                         </div>
                         <p>Source</p>
-                    </div>
+                    </a>
 
-                    <div className="
+                    <a className="
                     w-40 sm:w-60 xl:w-28 h-8 p-2 flex flex-row gap-2 rounded-md 
                     bg-gray-800 hover:bg-gray-700 text-white dark:bg-gray-200 dark:text-black dark:hover:bg-[rgb(191,194,206)]
                     font-semibold text-sm place-items-center justify-center place-self-center hover:cursor-pointer"
+                    
+                    href={props.data.site}
                     >
                         <div className="">
                             <CiGlobe />
                         </div>
                         <p>Website</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

@@ -65,6 +65,7 @@ export function Card(props) {
                     font-semibold text-sm place-items-center justify-center place-self-center hover:cursor-pointer"
                     
                     href={props.data.repo}
+                    target='_blank'
                     >
                         <div className="">
                             <FiGithub />
@@ -78,6 +79,7 @@ export function Card(props) {
                     font-semibold text-sm place-items-center justify-center place-self-center hover:cursor-pointer"
                     
                     href={props.data.site}
+                    target='_blank'
                     >
                         <div className="">
                             <CiGlobe />

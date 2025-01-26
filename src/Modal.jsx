@@ -2,7 +2,6 @@ import { Card } from "./Card";
 
 export function Modal(props) {
 
-    console.log(props.show)
     if (props.show && props.img) {
 
         console.log('visible!')

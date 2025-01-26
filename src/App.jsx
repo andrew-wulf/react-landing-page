@@ -234,8 +234,8 @@ function App() {
             <div className="mt-10 mb-20 md:mt-20 md:mb-32 xl:mt-28 xl:mb-40 rounded-xl m-auto max-w-xl md:max-w-6xl py-5 px-3 md:px-5 text-center font-light text-gray-900 dark:text-gray-300
             text-3xl/normal md:text-4xl/normal xl:text-5xl/normal tracking-tight">
               <p>
-                I'm a <b className='text-[rgb(48,48,129)] dark:text-[rgb(122,124,245)] hover:text-[rgb(120,147,255)]'>software engineer</b> specializing in <b className='text-[rgb(44,44,82)] dark:text-[rgb(202,202,235)]'>full stack web development</b>. Check out my <b 
-                className='text-[rgb(209,70,124)] dark:text-[rgb(255,107,164)] hover:cursor-pointer hover:text-[rgb(255,134,180)]' onClick={projectScroll}>projects</b> below!
+                I'm a <b className='text-[rgb(73,73,187)] dark:text-[rgb(122,124,245)] hover:text-[rgb(120,147,255)]'>software engineer</b> specializing in <b className='text-[rgb(44,44,82)] dark:text-[rgb(202,202,235)]'>full stack web development</b>. Check out my <b 
+                className='text-[rgb(243,74,139)] dark:text-[rgb(255,107,164)] hover:cursor-pointer hover:text-[rgb(255,134,180)]' onClick={projectScroll}>projects</b> below!
               </p>
             </div>
 

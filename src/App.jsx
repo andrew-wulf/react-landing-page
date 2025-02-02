@@ -80,8 +80,8 @@ function App() {
       desc: "Multiplayer battle-royale style trivia game, inspired by cine2nerdle's battle mode. Supports 2-8 players. Coming soon!",
       imgs: ['movie_battle2.png'],
       tech: ['React.JS', 'Tailwind', 'Socket.IO', 'Express.JS', 'Heroku'],
-      repo: '',
-      site: ''
+      repo: 'https://github.com/andrew-wulf/movie_battle',
+      site: 'https://movie-battle.onrender.com/'
     },
     chess: {
       title: "Chess Game",

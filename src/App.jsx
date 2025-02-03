@@ -77,7 +77,7 @@ function App() {
     },
     movieBattle: {
       title: "Movie Battle",
-      desc: "Multiplayer battle-royale style trivia game, inspired by cine2nerdle's battle mode. Supports 2-8 players. Coming soon!",
+      desc: "Multiplayer battle-royale style trivia game, inspired by cine2nerdle's battle mode. Supports concurrent lobbies of 1-8 players.",
       imgs: ['movie_battle2.png'],
       tech: ['React.JS', 'Tailwind', 'Socket.IO', 'Express.JS', 'Heroku'],
       repo: 'https://github.com/andrew-wulf/movie_battle',
@@ -98,9 +98,8 @@ function App() {
     'Ruby on Rails': ['rails.svg', 'Web app framework'],
     'Tailwind': ['tailwind.svg', 'CSS framework'],
     'Vite': ['vite.svg', 'Javascript build tool'],
-    'Python': ['python.svg', 'Programming language'],
+    'Python': ['python.svg', 'Back End language'],
     'PostgreSQL': ['postgresql.svg', 'Database system']
-
   }
 
   const updateModal = (img) => {
@@ -253,13 +252,19 @@ function App() {
 
                 let arr = techStack[key];
 
+                let imgStyle = "w-8 md:w-10";
+
+                if (i === 5) {
+                  imgStyle = "w-8 md:w-10 pt-1"
+                }
+
                 return (
 
                   <div className="w-full flex flex-row border border-gray-300 dark:border-none rounded-lg
                   bg-[rgb(238,240,244)] dark:bg-[#151b2e]  hover:bg-[rgb(232,234,238)] dark:hover:bg-[rgb(18,24,44)]" key={i}>
     
                     <div className="m-3 w-10 h-10 md:w-12 md:h-12 rounded-lg flex place-content-center bg-[rgba(71,109,167,0.29)] ">
-                      <img src={arr[0]} className="w-8 md:w-10"/>
+                      <img src={arr[0]} className={imgStyle}/>
                     </div>
                     
                     <div className="ml-3 pt-2 flex flex-col">

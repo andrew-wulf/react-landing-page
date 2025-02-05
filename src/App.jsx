@@ -124,7 +124,7 @@ function App() {
 
   return (
     <>
-      <div className="relative isolate z-10 min-w-[380px] flex flex-col w-full bg-gray-50 text-black dark:bg-[rgb(10,12,30)] dark:text-white ">
+      <div className="relative isolate z-10 flex flex-col w-full bg-gray-50 text-black dark:bg-[rgb(10,12,30)] dark:text-white ">
 
         <div className="hidden md:absolute top-[420px] md:top-[360px] md:right-[55%] md:-z-10 md:mr-10 md:block md:transform-gpu md:blur-3xl" aria-hidden="true">
             <div className="aspect-[1000/700] md:w-[60.5625rem] bg-gradient-to-tr from-[#f0aaf0] to-[#817be2] opacity-20 dark:opacity-10 dark:from-[#7a457a] dark:to-[#3c3a9e]" style={{clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'}}></div>
@@ -133,14 +133,14 @@ function App() {
             <div className="opacity-0 aspect-[900/500] md:aspect-[1000/560] w-[600px] md:w-[68.5625rem] bg-gradient-to-tr from-[#9591ec] to-[#f55ef5] md:opacity-20 dark:opacity-10 dark:from-[#7a457a] dark:to-[#3c3a9e]" style={{clipPath: 'polygon(31% 6%, 39% 34%, 57% 50%, 70% 47%, 62% 62%, 27% 60%, 43% 41%, 36% 30%, 1% 18%, 16% 5%)'}}></div>
         </div>
 
-        <div className = 'fixed h-20 w-full min-w-[380px] flex flex-row place-items-center justify-between px-4 sm:px-4 xl:px-8 gap-1 bg-gray-50/[0.5] dark:bg-[rgb(10,12,30)]/[0.5]'>
+        <div className = 'fixed h-20 w-full mx-auto flex flex-row place-items-center justify-between px-4 sm:px-4 xl:px-8 gap-1 bg-gray-50/[0.5] dark:bg-[rgb(10,12,30)]/[0.5]'>
           
           <a href="https://andrew-wulf-portfolio.com">
             <img src='/logo_dark.png' alt="logo" className='hover:cursor-pointer aspect-square h-16 md:h-20 hidden dark:block '/>
             <img src='/Logo.png' alt="logo" className='hover:cursor-pointer aspect-square h-16 md:h-20 dark:hidden'/>
           </a>
 
-          <div className=' flex flex-row gap-8 place-items-center hidden'>
+          <div className='flex flex-row gap-8 place-items-center hidden'>
 
             <p className='text-md md:text-lg text-gray-600 hover:text-zinc-800 dark:text-gray-300 dark:opacity-75 hover:cursor-pointer dark:hover:text-gray-200 dark:hover:opacity-100 font-medium'>Home</p>
             <p className='text-md md:text-lg text-gray-600 hover:text-zinc-800 dark:text-gray-300 dark:opacity-75 hover:cursor-pointer dark:hover:text-gray-200 dark:hover:opacity-100 font-medium'>Projects</p>
@@ -242,7 +242,7 @@ function App() {
         </div>
 
 
-        <div className='mx-auto w-[380px] md:w-[500px] lg:w-[800px]'>
+        <div className='w-full mx-auto sm:w-[380px] md:w-[500px] lg:w-[800px]'>
 
           <h1 className='px-2 text-4xl mb-6 dark:text-white place-self-center tracking-tight text-black'>My Tech Stack</h1>
     

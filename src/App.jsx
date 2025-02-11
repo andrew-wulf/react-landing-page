@@ -169,10 +169,10 @@ function App() {
 
         <div className='mt-28 mx-auto flex place-items-center flex-col '>
 
-          <div className='w-full sm:w-[500px] rounded-none sm:rounded-xl bg-gray-50 dark:bg-[rgb(10,12,30)] border border-gray-300 shadow-md shadow-gray-300  p-4 place-items-center
+          <div className='w-full sm:w-[500px] rounded-none sm:rounded-xl bg-gray-50 dark:bg-[rgb(10,12,30)] border border-gray-300 shadow-md shadow-gray-300 p-4 place-items-center
           dark:border-[rgb(34,41,71)] dark:shadow-[rgb(10,12,30)]'>
 
-            <div className="flex flex-col gap-1 md:flex-row w-3/4 justify-between place-items-center">
+            <div className="flex flex-col gap-1 md:flex-row w-full sm:w-3/4 justify-between place-items-center">
 
               <img className="w-36 rounded-full" src="headshot.jpg"/>
               
@@ -244,7 +244,7 @@ function App() {
 
         <div className='w-full mx-auto sm:w-[380px] md:w-[500px] lg:w-[800px]'>
 
-          <h1 className='px-2 text-4xl mb-6 dark:text-white place-self-center tracking-tight text-black'>My Tech Stack</h1>
+          <h1 className='px-2 text-4xl mb-6 dark:text-white text-center tracking-tight text-black'>My Tech Stack</h1>
     
           <div className='pt-6 grid grid-cols-2 px-2 gap-4  md:gap-6 lg:grid-cols-3  lg:gap-8'>
             {

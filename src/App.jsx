@@ -78,7 +78,7 @@ function App() {
     movieBattle: {
       title: "Movie Battle",
       desc: "Multiplayer battle-royale style trivia game, inspired by cine2nerdle's battle mode. Supports concurrent lobbies of 1-8 players.",
-      imgs: ['movie_battle2.png'],
+      imgs: ['movie_battle1.png', 'movie_battle2.png', 'movie_battle3.png', 'movie_battle4.png'],
       tech: ['React.JS', 'Tailwind', 'Socket.IO', 'Express.JS', 'Heroku'],
       repo: 'https://github.com/andrew-wulf/movie_battle',
       site: 'https://movie-battle.onrender.com/'

@@ -2,11 +2,28 @@ import { useState } from "react"
 import { Gallery } from "./Gallery"
 import { FiGithub } from "react-icons/fi";
 import { CiGlobe } from "react-icons/ci";
-
+import axios from 'axios';
 
 export function Card(props) {
 
     const [autoPlay, setAutoplay] = useState(false);
+
+    const onVisit = (url) => {
+        if (!url) {
+            url = window.location.href;
+        }
+        axios.post('/visit.json', {site: url, visitor_id: localStorage.getItem('visitorID')})
+        .then(response => {
+            //console.log(response);
+            let data = response.data;
+            if (data.visitor_id) {
+            localStorage.setItem('visitorID', data.visitor_id)
+            }
+        })
+        .catch(error => {
+            //console.log(error);
+        })
+    }
 
     return (
         <div className="w-full mx-auto">
@@ -66,6 +83,7 @@ export function Card(props) {
                     
                     href={props.data.repo}
                     target='_blank'
+                    onClick={() => {onVisit(props.data.repo)}}
                     >
                         <div className="">
                             <FiGithub />
@@ -80,6 +98,7 @@ export function Card(props) {
                     
                     href={props.data.site}
                     target='_blank'
+                    onClick={() => {onVisit(props.data.site)}}
                     >
                         <div className="">
                             <CiGlobe />

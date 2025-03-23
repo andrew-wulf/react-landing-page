@@ -12,16 +12,35 @@ import { LuMail } from 'react-icons/lu';
 import { Modal } from './Modal';
 import { PiMapPinFill } from 'react-icons/pi';
 import { Contact } from './tw_components';
-
+import axios from 'axios';
 
 
 function App() {
-
+  
   const [theme, setTheme] = useState('light');
 
   const [modalImg, setModalImg] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
 
+  axios.defaults.baseURL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://andrew-wulf-portfolio-api-486934fb1f0f.herokuapp.com/";
+
+  const onVisit = (url) => {
+    if (!url) {
+      url = window.location.href;
+    }
+    axios.post('/visit.json', {site: url, visitor_id: localStorage.getItem('visitorID')})
+    .then(response => {
+      //console.log(response);
+      let data = response.data;
+      if (data.visitor_id) {
+        localStorage.setItem('visitorID', data.visitor_id)
+      }
+    })
+    .catch(error => {
+      //console.log(error);
+    })
+  }
+  useEffect(onVisit, [])
 
   const getLocalStorage = () => {
 
@@ -203,6 +222,7 @@ function App() {
                 <a href="Andrew_Wulf_Resume.docx" target="_blank" rel="noopener noreferrer" className='flex flex-row place-items-center gap-2 p-2 px-4 border border-slate-300 shadow-sm shadow-slate-200 rounded-lg font-semibold 
                 hover:cursor-pointer hover:bg-gray-100 
                 dark:shadow-none dark:bg-transparent dark:border-[rgb(34,41,71)] dark:text-gray-100 dark:hover:text-white dark:hover:bg-[rgb(6,8,26)] dark:hover:border-gray-500'
+                onClick={() => {onVisit('resume_link')}}
                 >
                   <p>Resume</p>
                   <GrDocumentDownload/>

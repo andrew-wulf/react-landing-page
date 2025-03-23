@@ -26,7 +26,7 @@ function App() {
 
   const onVisit = (url) => {
     if (!url) {
-      url = window.location.href;
+      url = 'https://andrew-wulf-portfolio.com';
     }
     axios.post('/visit.json', {site: url, visitor_id: localStorage.getItem('visitorID')})
     .then(response => {

@@ -1,29 +1,29 @@
-import { useState } from "react"
-import { Gallery } from "./Gallery"
-import { FiGithub } from "react-icons/fi";
+import { useState } from "react";
 import { CiGlobe } from "react-icons/ci";
-import axios from 'axios';
+import { FiGithub } from "react-icons/fi";
+import { Gallery } from "./Gallery";
+// import axios from 'axios';
 
 export function Card(props) {
 
     const [autoPlay, setAutoplay] = useState(false);
 
-    const onVisit = (url) => {
-        if (!url) {
-            url = window.location.href;
-        }
-        axios.post('/visit.json', {site: url, visitor_id: localStorage.getItem('visitorID')})
-        .then(response => {
-            //console.log(response);
-            let data = response.data;
-            if (data.visitor_id) {
-            localStorage.setItem('visitorID', data.visitor_id)
-            }
-        })
-        .catch(error => {
-            //console.log(error);
-        })
-    }
+    // const onVisit = (url) => {
+    //     if (!url) {
+    //         url = window.location.href;
+    //     }
+    //     axios.post('/visit.json', {site: url, visitor_id: localStorage.getItem('visitorID')})
+    //     .then(response => {
+    //         //console.log(response);
+    //         let data = response.data;
+    //         if (data.visitor_id) {
+    //         localStorage.setItem('visitorID', data.visitor_id)
+    //         }
+    //     })
+    //     .catch(error => {
+    //         //console.log(error);
+    //     })
+    // }
 
     return (
         <div className="w-full mx-auto">
@@ -32,16 +32,16 @@ export function Card(props) {
                 bg-gray-50 
                 dark:bg-[rgb(10,12,30)] dark:border-[rgb(34,41,71)] dark:shadow-none 
                 text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-gray-50 sm:shrink-0 sm:grow sm:basis-0
-                " 
+                "
 
-                onMouseEnter={() => {setAutoplay(true)}}
-                onMouseLeave={() => {setAutoplay(false)}}
-                >
+                onMouseEnter={() => { setAutoplay(true) }}
+                onMouseLeave={() => { setAutoplay(false) }}
+            >
                 <a href="#!">
-                
-                <div className="w-full mx-auto">
-                    <Gallery imgs={props.data.imgs} autoPlay={autoPlay} delay={props.delay} imgClick={props.imgClick}/>
-                </div>
+
+                    <div className="w-full mx-auto">
+                        <Gallery imgs={props.data.imgs} autoPlay={autoPlay} delay={props.delay} imgClick={props.imgClick} />
+                    </div>
 
                 </a>
                 <div className="pl-6 pr-6 pt-4 pb-2 border-b-2 border-neutral-100 dark:border-[rgb(34,41,71)] dark:border-b">
@@ -49,12 +49,12 @@ export function Card(props) {
                     <p className="text-sm text-gray-600 dark:text-[rgb(139,151,173)] font-normal min-h-16 mt-4">
                         {props.data.desc}
                     </p>
-                    
-                    
+
+
                     <div className="mt-2 mb-3 flex flex-wrap gap-y-3 gap-x-4 xl:min-h-12 3xl:min-h-0">
                         {
                             props.data.tech.map((name, i) => {
-                        
+
                                 return (
                                     <div className="inline-flex items-center rounded-md border font-semibold
                                     focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent 
@@ -69,43 +69,69 @@ export function Card(props) {
 
 
 
+                {
+                    props.data.site ? (
+                        <div
+                            className="mt-auto py-3 text-center text-surface-75 grid grid-rows-2 gap-3 xl:grid-cols-2 xl:grid-rows-1 w-40 sm:w-60 xl:w-80 mx-auto">
+                            {/* <a className=" text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-700 hover:cursor-pointer hover:underline hover:text-blue-700">View on Github</a>
+                                <a className=" text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-700 hover:cursor-pointer hover:underline hover:text-blue-700">Project Site</a> */}
+                            <a className="
+                                w-40 sm:w-60 xl:w-28 h-8 p-2 flex flex-row gap-2 rounded-md 
+                                bg-gray-50 border border-gray-800 hover:bg-gray-200 hover:text-gray-900 text-gray-800 
+                                dark:text-gray-200 dark:bg-transparent dark:border-[rgb(34,41,71)] dark:hover:text-white dark:hover:bg-[rgb(6,8,26)] dark:hover:border-gray-600
+                                font-semibold text-sm place-items-center justify-center place-self-center hover:cursor-pointer"
 
-                <div
-                    className="mt-auto py-3 text-center text-surface-75 grid grid-rows-2 gap-3 xl:grid-cols-2 xl:grid-rows-1 w-40 sm:w-60 xl:w-80 mx-auto">
-                    {/* <a className=" text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-700 hover:cursor-pointer hover:underline hover:text-blue-700">View on Github</a>
-                    <a className=" text-xs sm:text-sm lg:text-xs xl:text-sm 2xl:text-md text-gray-700 hover:cursor-pointer hover:underline hover:text-blue-700">Project Site</a> */}
-                    
-                    <a className="
-                    w-40 sm:w-60 xl:w-28 h-8 p-2 flex flex-row gap-2 rounded-md 
-                    bg-gray-50 border border-gray-800 hover:bg-gray-200 hover:text-gray-900 text-gray-800 
-                    dark:text-gray-200 dark:bg-transparent dark:border-[rgb(34,41,71)] dark:hover:text-white dark:hover:bg-[rgb(6,8,26)] dark:hover:border-gray-600
-                    font-semibold text-sm place-items-center justify-center place-self-center hover:cursor-pointer"
-                    
-                    href={props.data.repo}
-                    target='_blank'
-                    onClick={() => {onVisit(props.data.repo)}}
-                    >
-                        <div className="">
-                            <FiGithub />
-                        </div>
-                        <p>Source</p>
-                    </a>
+                                href={props.data.repo}
+                                target='_blank'
+                            // onClick={() => { onVisit(props.data.repo) }}
+                            >
+                                <div className="">
+                                    <FiGithub />
+                                </div>
+                                <p>Source</p>
+                            </a>
 
-                    <a className="
-                    w-40 sm:w-60 xl:w-28 h-8 p-2 flex flex-row gap-2 rounded-md 
-                    bg-gray-800 hover:bg-gray-700 text-white dark:bg-gray-200 dark:text-black dark:hover:bg-[rgb(191,194,206)]
-                    font-semibold text-sm place-items-center justify-center place-self-center hover:cursor-pointer"
-                    
-                    href={props.data.site}
-                    target='_blank'
-                    onClick={() => {onVisit(props.data.site)}}
-                    >
-                        <div className="">
-                            <CiGlobe />
+                            <a className="
+                                w-40 sm:w-60 xl:w-28 h-8 p-2 flex flex-row gap-2 rounded-md 
+                                bg-gray-800 hover:bg-gray-700 text-white dark:bg-gray-200 dark:text-black dark:hover:bg-[rgb(191,194,206)]
+                                font-semibold text-sm place-items-center justify-center place-self-center hover:cursor-pointer"
+
+                                href={props.data.site}
+                                target='_blank'
+                            // onClick={() => { onVisit(props.data.site) }}
+                            >
+                                <div className="">
+                                    <CiGlobe />
+                                </div>
+                                <p>Website</p>
+                            </a>
                         </div>
-                        <p>Website</p>
-                    </a>
-                </div>
+
+                    ) : (
+                        <div
+                            className="mt-auto py-3 text-center text-surface-75 grid gap-3 grid-cols-2 w-full xl:w-80 mx-auto">
+                            <a
+                                href={props.data.appStore}
+                                target='_blank'
+                                className="
+                                w-40 xl:w-28 h-8 p-1 flex flex-row rounded-md
+                                font-semibold text-sm place-items-center justify-center place-self-center hover:cursor-pointer">
+                                <img src='appStoreWhite.svg' className="object-cover" />
+                            </a>
+                            <a
+                                href={props.data.googlePlay}
+                                target='_blank'
+                                className="
+                                w-40 xl:w-28 h-8 p-3 lg:p-0 flex flex-row rounded-md
+                                font-semibold text-sm place-items-center justify-center place-self-center hover:cursor-pointer">
+                                <img src='googlePlay.png' className="object-cover" />
+                            </a>
+                        </div>
+                    )
+
+                }
+
+
             </div>
         </div>
     )
